@@ -5,9 +5,11 @@ description = ""
 authors = ["Lu1z-Gust4v0 <gustavo1204.gc@gmail.com>"]
 license = "MIT"
 readme = "README.md"
+package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.11"
+selenium = "^4.20.0"
 
 
 [build-system]
