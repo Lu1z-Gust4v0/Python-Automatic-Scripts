@@ -13,13 +13,15 @@ def main():
 
     print("Browsed initialized successfully")
 
-    handle_page_access(browser)
+    handle_page_access(browser, waiter)
 
     handle_gmail_login(browser, waiter)
 
     handle_send_email(browser, waiter)
 
     print("Task finished successfully")
+
+    browser.quit()
 
 
 main()

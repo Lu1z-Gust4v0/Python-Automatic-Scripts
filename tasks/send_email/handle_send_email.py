@@ -1,4 +1,5 @@
 import os
+from time import sleep
 
 from selenium.webdriver import ActionChains, Chrome, Keys
 from selenium.webdriver.common.by import By
@@ -53,5 +54,7 @@ def handle_send_email(browser: Chrome, waiter: WebDriverWait):
     print("Email body filled")
 
     ActionChains(browser).key_down(Keys.CONTROL).send_keys(Keys.ENTER).perform()
+
+    sleep(5)
 
     print("Email sent successfully")
