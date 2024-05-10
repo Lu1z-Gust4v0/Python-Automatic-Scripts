@@ -10,7 +10,7 @@ This repository contains python scripts to perform automatic tasks using seleniu
 
 ## How to setup
 
-```
+```sh
 # Copy the .example and enter your infos
 cp .env.example .env
 ```
