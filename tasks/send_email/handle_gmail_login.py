@@ -7,9 +7,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 LOGIN_PAGE_BUTTON_XPATH = "/html/body/header/div/div/div/a[2]"
 EMAIL_INPUT_XPATH = "//*[@id='identifierId']"
-EMAIL_BUTTON_XPATH = "//*[@id='identifierNext']/div/button"
-PASSWORD_INPUT_XPATH = "//*[@id='password']/div[1]/div/div[1]/input"
-PASSWORD_BUTTON_XPATH = "//*[@id='passwordNext']/div/button"
+EMAIL_BUTTON_CSS_SELECTOR = "button#identifierNext[name='action']"
+PASSWORD_INPUT_CSS_SELECTOR = "input#password[name='Passwd']"
+PASSWORD_BUTTON_CSS_SELECTOR = "button#passwordNext[name='action']"
 
 
 def handle_gmail_login(browser: Chrome, waiter: WebDriverWait):
@@ -31,21 +31,23 @@ def handle_gmail_login(browser: Chrome, waiter: WebDriverWait):
 
     print("Email inserted successfully")
 
-    email_button = browser.find_element(By.XPATH, EMAIL_BUTTON_XPATH)
+    email_button = browser.find_element(By.CSS_SELECTOR, EMAIL_BUTTON_CSS_SELECTOR)
     email_button.click()
 
     waiter.until(
         expected_conditions.visibility_of_element_located(
-            (By.XPATH, PASSWORD_INPUT_XPATH)
+            (By.CSS_SELECTOR, PASSWORD_INPUT_CSS_SELECTOR)
         )
     )
 
-    password_input = browser.find_element(By.XPATH, PASSWORD_INPUT_XPATH)
+    password_input = browser.find_element(By.CSS_SELECTOR, PASSWORD_INPUT_CSS_SELECTOR)
     password_input.send_keys(os.getenv("GMAIL_PASSWORD"))
 
     print("Password inserted successfully")
 
-    password_button = browser.find_element(By.XPATH, PASSWORD_BUTTON_XPATH)
+    password_button = browser.find_element(
+        By.CSS_SELECTOR, PASSWORD_BUTTON_CSS_SELECTOR
+    )
     password_button.click()
 
     print("User logged successfully")

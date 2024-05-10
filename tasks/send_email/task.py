@@ -9,7 +9,7 @@ from tasks.utils import init_web_driver
 def main():
     load_dotenv()
 
-    browser, waiter = init_web_driver([])
+    browser, waiter = init_web_driver(["--headless=new"])
 
     print("Browsed initialized successfully")
 
