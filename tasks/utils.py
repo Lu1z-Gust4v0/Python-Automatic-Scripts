@@ -27,7 +27,7 @@ def save_page(browser: Chrome, open_screenshot=False):
     browser.save_screenshot(f"saved_page_{page_id}.png")
 
     if open_screenshot:
-        screenshot = Image(f"saved_page_{page_id}.png")
+        screenshot = Image.open(f"saved_page_{page_id}.png")
         screenshot.show()
 
     with open(f"saved_page_{page_id}.html", "w", encoding="utf-8") as file:
