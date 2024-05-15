@@ -12,6 +12,7 @@ python = "^3.11"
 selenium = "^4.20.0"
 python-dotenv = "^1.0.1"
 selenium-screenshot = "^2.1.0"
+undetected-chromedriver = "^3.5.5"
 
 
 [build-system]
