@@ -16,7 +16,9 @@ def init_undetected_driver(arguments: list[str]):
     for argument in arguments:
         webdriver_options.add_argument(argument)
 
-    browser = undetected_driver.Chrome(options=webdriver_options, version_main=124)
+    browser = undetected_driver.Chrome(
+        options=webdriver_options, enable_cdp_events=True, version_main=124
+    )
     waiter = WebDriverWait(browser, TIMEOUT_IN_SECONDS)
 
     return browser, waiter
