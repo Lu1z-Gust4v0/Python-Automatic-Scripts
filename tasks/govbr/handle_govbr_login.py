@@ -1,4 +1,5 @@
 import os
+from time import sleep
 
 from selenium.webdriver import Chrome
 from selenium.webdriver.common.by import By
@@ -15,6 +16,8 @@ def handle_govbr_login(browser: Chrome, waiter: WebDriverWait):
     cpf_input = browser.find_element(By.XPATH, CPF_INPUT_XPATH)
     cpf_input.send_keys(os.getenv("CPF"))
 
+    sleep(2)
+
     continue_button = browser.find_element(By.XPATH, CONTINUE_BUTTON_XPATH)
     continue_button.click()
 
@@ -27,7 +30,11 @@ def handle_govbr_login(browser: Chrome, waiter: WebDriverWait):
     password_input = browser.find_element(By.XPATH, PASSWORD_INPUT_XPATH)
     password_input.send_keys(os.getenv("GOVBR_PASSWORD"))
 
+    sleep(2)
+
     enter_button = browser.find_element(By.XPATH, ENTER_BUTTON_XPATH)
     enter_button.click()
 
     print("Logged successfully")
+
+    sleep(2)
